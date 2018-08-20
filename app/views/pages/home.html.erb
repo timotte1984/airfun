@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,20,30,0.3) 50%), url('https://images.pexels.com/photos/705771/pexels-photo-705771.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');">
+  <div class="banner-content">
+    <h1>Louez une attraction pour votre évènement.</h1>
+    <div class="form">
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="Localisation ?">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" id="exampleInputEmail2" placeholder="dd/mm/yyyy">
+        </div>
+        <%= link_to "Rechercher", attractions_path , class:"btn-search btn-lg"%>
+      </form>
+    </div>
+  </div>
+</div>
