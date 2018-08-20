@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_20_125908) do
+ActiveRecord::Schema.define(version: 2018_08_20_145604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attractions", force: :cascade do |t|
+    t.string "nom"
+    t.string "type"
+    t.integer "playersmax"
+    t.bigint "user_id"
+    t.string "description"
+    t.integer "price"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_url"
+    t.index ["user_id"], name: "index_attractions_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "description"
+    t.date "starttime"
+    t.date "endtime"
+    t.string "place"
+    t.bigint "user_id"
+    t.bigint "attraction_id"
+    t.boolean "is_validated"
+    t.boolean "is_paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_bookings_on_attraction_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -24,4 +53,6 @@ ActiveRecord::Schema.define(version: 2018_08_20_125908) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "bookings", "attractions"
+  add_foreign_key "bookings", "users"
 end
