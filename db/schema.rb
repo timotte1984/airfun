@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_08_20_145604) do
 
   create_table "attractions", force: :cascade do |t|
     t.string "nom"
-    t.string "type"
+    t.string "attraction_type"
     t.integer "playersmax"
     t.bigint "user_id"
     t.string "description"
