@@ -13,9 +13,10 @@
 .btn-search {
   background-color: #244F5A;
   color: white;
+  font-size: 14px
 }
 
-.btn-owner:hover {
+.btn-search:hover, .btn-owner:hover {
   color: white;
   opacity: 0.7;
   text-decoration: none;
