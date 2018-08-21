@@ -12,3 +12,20 @@
 
 <br/>
 <%= link_to 'Back to All Attractions', attractions_path %>
+
+<ul>
+  <% @attraction.availabilities.each do |availability| %>
+    <li>
+      <%= availability.date %> <%= availability.is_available ? "is available" : "not available" %>
+      <% if current_user == @attraction.user  %>
+        <%= link_to "Cette date n'est plus disponible", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Really delete this article?"} %>
+
+      <% end %>
+    <% end %>
+    </li>
+</ul>
+
+<%= link_to "Book this attraction", new_attraction_booking_path(@attraction) %>
+
+
+
