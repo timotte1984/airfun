@@ -1,6 +1,22 @@
 <div class="wrapper">
   <div class="container">
-    <h2>Tous les loisirs :</h2>
-
+    <h2>Tous les loisirs</h2>
+      <div class="container">
+        <div class="row">
+          <% @attractions.each do |attraction| %>
+            <div class="col-xs-12 col-sm-3">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= attraction.image_url %>');">
+                <div class="card-category"><%= attraction.location %></div>
+                <div class="card-description">
+                  <h2><%= attraction.nom %></h2>
+                  <p><%= attraction.price %></p>
+                </div>
+                <%= image_tag "logo.png", alt:"img", class: "card-user" %>
+                <%= link_to "#","", class:"card-link" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
   </div>
 </div>
