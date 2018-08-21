@@ -12,8 +12,10 @@
                   <p><%= attraction.price %></p>
                 </div>
                 <%= image_tag "logo.png", alt:"img", class: "card-user" %>
-                <%= link_to "#","", class:"card-link" %>
+                <%= link_to "#", attraction_path(attraction), class:"card-link" %>
               </div>
+              <%= link_to 'Edit', edit_attraction_path(attraction) %>
+              <%= link_to "Delete", attraction_path(attraction), method: :delete, data: {confirm: "Really delete this article?"} %>
             </div>
           <% end %>
         </div>
