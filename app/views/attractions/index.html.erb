@@ -5,14 +5,13 @@
         <div class="row">
           <% @attractions.each do |attraction| %>
             <div class="col-xs-12 col-sm-3">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= attraction.image_url %>');">
-                <div class="card-category"><%= attraction.location %></div>
+              <div class="card", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= attraction.photo %>)">
                 <div class="card-description">
                   <h2><%= attraction.name %></h2>
                   <p><%= attraction.price %></p>
                 </div>
-                <%= image_tag "logo.png", alt:"img", class: "card-user" %>
-                <%= link_to "#", attraction_path(attraction), class:"card-link" %>
+                  <%= image_tag "logo.png", alt:"img", class: "card-user" %>
+                  <%= link_to "#", attraction_path(attraction), class:"card-link" %>
               </div>
               <%= link_to 'Edit', edit_attraction_path(attraction) %>
               <%= link_to "Delete", attraction_path(attraction), method: :delete, data: {confirm: "Really delete this article?"} %>
