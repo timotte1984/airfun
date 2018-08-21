@@ -1,2 +1,16 @@
-<h1>Attractions#new</h1>
-<p>Find me in app/views/attractions/new.html.erb</p>
+<h2>Create a New Attraction</h2>
+
+<%= simple_form_for(@attraction) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :attraction_type %>
+    <%= f.input :playersmax %>
+    <%= %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create" %>
+  </div>
+<% end %>
