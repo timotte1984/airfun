@@ -5,7 +5,7 @@
         <% end %>
     <div class="row">
       <div class="col-xs-3">
-        <div class="attraction-image" style="background-image: url(<%= @attraction.image_url%>);">
+        <div class="attraction-image" style="background-image: url(<%= @attraction.photo.url.nil? ? @attraction.image_url : @attraction.photo %>)">
         </div>
       </div>
 
