@@ -3,23 +3,25 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @attractions = Attraction.all
+    @attractions = policy_scope(Attraction).order(created_at: :desc)
   end
 
   def show
   end
 
+  def new
+    @attraction = Attraction.new
+    authorize @attraction
+  end
+
   def create
     @attraction = Attraction.new(attraction_params)
+    auhtorize @attraction
     if @attraction.save
       redirect_to attraction_path(@attraction)
     else
       render :new
     end
-  end
-
-  def new
-    @attraction = Attraction.new
   end
 
   def edit
@@ -49,5 +51,15 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.find(params[:id])
   end
 
+  private
+
+  def set_attraction
+    @attraction = Attraction.find(params[:id])
+    authorize @attraction
+  end
+
+  def params_attraction
+    params.require(:attraction).permit(:name, :attraction_type, :playersmax, :description, :price, :location)
+  end
 
 end
