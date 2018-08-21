@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2018_08_21_125956) do
     t.index ["user_id"], name: "index_attractions_on_user_id"
   end
 
+  create_table "availabilities", force: :cascade do |t|
+    t.boolean "is_available"
+    t.date "date"
+    t.bigint "attraction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attraction_id"], name: "index_availabilities_on_attraction_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.string "description"
     t.date "starttime"
@@ -56,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_08_21_125956) do
   end
 
   add_foreign_key "attractions", "users"
+  add_foreign_key "availabilities", "attractions"
   add_foreign_key "bookings", "attractions"
 end
 

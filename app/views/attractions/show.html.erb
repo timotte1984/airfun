@@ -39,3 +39,30 @@
   </div>
 </div>
 
+<p> playersmax : <%= @attraction.playersmax %> </p>
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %>
+<br/>
+<%= link_to "Delete", attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} %>
+
+<br/>
+<%= link_to 'Back to All Attractions', attractions_path %>
+
+<ul class="list-unstyled">
+  <% @attraction.availabilities.sort_by{|avai| avai.date}.each do |availability| %>
+    <li>
+      <% if availability.is_available %>
+        <i class="fas fa-check text-success"></i>
+      <% else %>
+        <i class="fas fa-times text-danger"></i>
+      <% end %>
+      <%= availability.date %> <%= availability.is_available ? "is available"  : "not available" %>
+      <% if current_user == @attraction.user and availability.is_available %>
+        <%= link_to "Cette date n'est plus disponible", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Really delete this article?"} %>
+      <% end %>
+      <% if current_user != @attraction.user and availability.is_available %>
+      <%= link_to "Book", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Really want to book this date?"} %>
+      <% end %>
+    <% end %>
+    </li>
+</ul>

@@ -64,3 +64,20 @@ end
 # end
 
 # p my_hash
+
+
+current_date = Date.today
+attractions = Attraction.all
+
+for i in (0..7)
+  attractions.each do |attraction|
+    Availability.create(
+      date: current_date,
+      attraction: attraction,
+      is_available: rand(10) > 5 ? true : false
+    )
+  end
+  current_date += 1
+end
+
+
