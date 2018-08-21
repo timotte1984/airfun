@@ -1,0 +1,40 @@
+.attraction-content h3{
+  margin-top: 0px !important;
+}
+
+.attraction-image{
+  height: 25vh;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.attraction-content{
+  height: 25vh;
+  background-color: white;
+  border-radius: 4px;
+  padding-top: 20px;
+  padding-left: 35px;
+}
+
+.attraction-description{
+  height: 40vh;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 35px;
+}
+
+.attraction-reservation{
+  height: 40vh;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size : 25px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.attraction-reservation p{
+  font-weight: 600px;
+}
