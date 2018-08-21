@@ -7,6 +7,7 @@
   position: relative;
   margin: 15px 0px;
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -25,13 +26,13 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  text-shadow: 0.5px 0.5px 0.5px black;
 }
 .card-description h2 {
   font-size: 24px;
 }
 .card-description p {
   font-size: 14px;
-  opacity: 0.7;
   font-weight: lighter;
 }
 .card-link {
@@ -47,6 +48,7 @@
 .card-link:hover {
   opacity: 0.1;
 }
+
 
 
 
