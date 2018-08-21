@@ -74,7 +74,7 @@ for i in (0..7)
     Availability.create(
       date: current_date,
       attraction: attraction,
-      is_available: (rand < O.5 ? true : false)
+      is_available: rand(10) > 5 ? true : false
     )
   end
   current_date += 1
