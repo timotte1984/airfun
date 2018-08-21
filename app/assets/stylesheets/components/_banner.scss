@@ -13,3 +13,44 @@
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
+
+.banner-content h3{
+  margin-top: 0px !important;
+}
+
+.banner-image{
+  height: 25vh;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.banner-content{
+  height: 25vh;
+  background-color: white;
+  border-radius: 4px;
+  padding-top: 20px;
+  padding-left: 35px;
+}
+
+.banner-description{
+  height: 40vh;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-left: 35px;
+}
+
+.banner-reservation{
+  height: 40vh;
+  background-color: white;
+  border-radius: 4px;
+  margin-top: 20px;
+  font-size : 25px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.banner-reservation p{
+  font-weight: 600px;
+}

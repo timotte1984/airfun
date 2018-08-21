@@ -1,14 +1,41 @@
+<div class="wrapper-show">
+  <div class="container">
+    <%= link_to edit_attraction_path(@attraction), class:"logo-back" do %>
+        <i class="fas fa-arrow-circle-left i-btn"></i>
+        <% end %>
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="banner-image" style="background-image: url(<%= @attraction.image_url%>);">
+        </div>
+      </div>
 
+      <div class="col-xs-9">
+        <div class="banner-content">
+          <h3><%= @attraction.name %></h3>
+          <p> Phrase de présentation de l'attraction </p>
+        </div>
+      </div>
 
-<h3> name : <%= @attraction.name %></h3>
+      <div class="col-xs-7">
+        <div class="banner-description">
+          <h4> Description de l'attraction </h4>
+          <p> attraction_type : <%= @attraction.attraction_type %> </p>
+          <p> playersmax : <%= @attraction.playersmax %> </p>
+          <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
+            <i class="fas fa-edit i-btn"></i>
+          <% end %>
+          <%= link_to attractions_path, method: :delete, data: {confirm: "Really delete this article?"} do %>
+          <i class="fas fa-trash-alt i-btn"></i>
+          <% end %>
+        </div>
+      </div>
 
-<p> attraction_type : <%= @attraction.attraction_type %> </p>
+      <div class="col-xs-5">
+        <div class="banner-reservation">
+          <p> Réservez en ligne </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p> playersmax : <%= @attraction.playersmax %> </p>
-
-<%= link_to 'Edit', edit_attraction_path(@attraction) %>
-<br/>
-<%= link_to "Delete", attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} %>
-
-<br/>
-<%= link_to 'Back to All Attractions', attractions_path %>
