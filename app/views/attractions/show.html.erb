@@ -1,2 +1,14 @@
-<h1>Attractions#show</h1>
-<p>Find me in app/views/attractions/show.html.erb</p>
+
+
+<h3> name : <%= @attraction.name %></h3>
+
+<p> attraction_type : <%= @attraction.attraction_type %> </p>
+
+<p> playersmax : <%= @attraction.playersmax %> </p>
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %>
+<br/>
+<%= link_to "Delete", attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} %>
+
+<br/>
+<%= link_to 'Back to All Attractions', attractions_path %>
