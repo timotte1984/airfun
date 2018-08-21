@@ -12,5 +12,10 @@ class AttractionsController < ApplicationController
   end
 
   def new
+
+  def edit
+  end
+
+  def update
   end
 end
