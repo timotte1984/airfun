@@ -28,7 +28,9 @@
             <%= link_to "Profil", "#" %>
           </li>
           <li>
-            <%= link_to "Se déconnecter", "#" %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= icon('fas', 'sign-out-alt') %><%= t(".sign_out", default: "Se déconnecter") %>
+            <% end %>
           </li>
         </ul>
       </div>
