@@ -30,6 +30,7 @@ class AttractionsController < ApplicationController
   end
 
   def update
+    @user_id = current_user
     if @attraction.update(attraction_params)
       redirect_to attraction_path(@attraction)
     else
@@ -44,23 +45,13 @@ class AttractionsController < ApplicationController
 
   private
 
-  def attraction_params
-    params.require(:attraction).permit(:name, :attraction_type, :playersmax)
-  end
-
-  def set_attraction
-    @attraction = Attraction.find(params[:id])
-  end
-
-  private
-
   def set_attraction
     @attraction = Attraction.find(params[:id])
     authorize @attraction
   end
 
-  def params_attraction
-    params.require(:attraction).permit(:name, :attraction_type, :playersmax, :description, :price, :location)
+  def attraction_params
+    params.require(:attraction).permit(:name, :attraction_type, :playersmax, :photo, :photo_cache,:description, :price, :location)
   end
 
 end
