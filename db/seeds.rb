@@ -5,12 +5,10 @@ Attraction.destroy_all
 Booking.destroy_all
 
 # Fake user
-# u1 = User.create(
-#   first_name: "Boris",
-#   last_name: "Paillard",
-#   email: "boris@lewagon.fr",
-#   password: "123456"
-# )
+u1 = User.create(
+  email: "boris@lewagon.fr",
+  password: "123456"
+)
 
 # patter to find last part of url
 pattern = /[^\/]+(?=\/$|$)/
@@ -47,6 +45,7 @@ results_array.each do |hash|
     description: "Trop bien",
     price: rand(50..100),
     image_url: hash[:img],
+    user: u1
   )
   attraction.save!
 end
