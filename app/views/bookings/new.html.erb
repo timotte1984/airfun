@@ -7,10 +7,10 @@
     <%= simple_form_for([@attraction, @booking]) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
-        <%= f.input :description, label: "Description" %>
-        <%= f.input :start_date, label: "Date départ" %>
+        <%= f.input :description, label: "Quel type d'évènement ?" %>
+        <%= f.input :start_date, label: "Date de début" %>
         <%= f.input :end_date, label: "Date de fin" %>
-        <%= f.input :place, label: "Emplacement" %>
+        <%= f.input :place, label: "Lieux" %>
       </div>
 
       <div class="form-actions">
@@ -19,7 +19,5 @@
       </div>
     <% end %>
   </div>
-
-
 </div>
 
