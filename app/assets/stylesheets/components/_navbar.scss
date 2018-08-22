@@ -1,25 +1,25 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #244F5A;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #33809E;
   height: 10vh;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
+  width: 50px;
 }
 
 /* User Avatar */
 .navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
@@ -82,11 +82,11 @@
 }
 
 .link-i i {
-  margin: 0px 5px;
-  font-size: 16px;
-}
+  margin: 0px 0px;
+  font-size: 21px;
 
-.link-i i:hover {
-  opacity: 0.7;
+  &:hover {
+  color: #ec5a70;
   transition: 0.5s ease;
+  }
 }

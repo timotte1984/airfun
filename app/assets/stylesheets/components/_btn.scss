@@ -1,4 +1,4 @@
-.btn {
+ .btn {
   padding: 5px 10px;
   border: 1px solid white;
   border-radius: 5px;
@@ -7,19 +7,31 @@
 }
 
 .btn-owner {
-  margin-left: 20px;
+  margin-left: 30px;
+  font-size: 13px;
 }
 
 .btn-search {
-  background-color: #244F5A;
+  background-color: #ec5a70;
   color: white;
-  font-size: 14px
+  font-size: 14px;
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+    color: white;
+    transition: 0.5s ease;
+  }
 }
 
-.btn-search:hover, .btn-owner:hover {
-  color: #244F5A;
-  opacity: 0.7;
-  text-decoration: none;
+.btn-login {
+  color: white;
+  font-size: 16px;
+  border-left: 2px solid white;
+}
+
+.btn-login:hover, .btn-owner:hover {
+  color: #ec5a70;
+  border-color: #ec5a70;
   transition: 0.5s ease;
 }
 
@@ -27,4 +39,3 @@
   font-size:18px;
   color:#244F5A;
 }
-

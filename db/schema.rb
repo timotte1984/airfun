@@ -68,4 +68,3 @@ ActiveRecord::Schema.define(version: 2018_08_21_125956) do
   add_foreign_key "availabilities", "attractions"
   add_foreign_key "bookings", "attractions"
 end
-
