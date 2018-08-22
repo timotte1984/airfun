@@ -49,10 +49,15 @@
                 <%= link_to "Réserver!", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Vous voulez vraiment réserver à cette date?"} %>
                 <% end %>
               <% end %>
-              </li>
+            </li>
           </ul>
         </div>
       </div>
+      <div class="container">
+         <%= link_to "Réserver!", new_attraction_booking_path(@attraction) %>
+      </div>
+
+
     </div>
   </div>
 </div>

@@ -1,3 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :attraction_id
+  belongs_to :attraction
+  belongs_to :user
 end
