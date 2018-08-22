@@ -11,9 +11,9 @@
     <%= simple_form_for([@attraction, @booking]) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs">
-        <%= f.input :start_time %>
         <%= f.input :description %>
-        <%= f.input :end_time %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
         <%= f.input :place %>
       </div>
 

@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 2018_08_22_101714) do
 
   create_table "bookings", force: :cascade do |t|
     t.string "description"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date "start_date"
+    t.date "end_date"
     t.string "place"
     t.bigint "attraction_id"
     t.boolean "is_validated"
