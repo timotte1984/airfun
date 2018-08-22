@@ -7,6 +7,14 @@ class AttractionsController < ApplicationController
   end
 
   def show
+    @markers = @attraction.availabilities.select {|avai| avai.is_available == false}
+    @markers = @markers.map do |avai|
+      {
+        from: avai.date,
+        to: avai.date
+      }
+    end
+
     if @attraction.user == nil
       @owner == false
     elsif @attraction.user == current_user
