@@ -15,6 +15,11 @@ class AttractionsController < ApplicationController
       }
     end
 
+    if @attraction.user == nil
+      @owner == false
+    elsif @attraction.user == current_user
+      @owner = true
+    end
   end
 
   def new

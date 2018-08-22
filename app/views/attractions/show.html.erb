@@ -21,11 +21,13 @@
           <h4> Description de l'attraction </h4>
           <p> attraction_type : <%= @attraction.attraction_type %> </p>
           <p> playersmax : <%= @attraction.playersmax %> </p>
-          <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
-            <i class="fas fa-edit i-btn"></i>
-          <% end %>
-          <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
-          <i class="fas fa-trash-alt i-btn"></i>
+          <% if @owner %>
+            <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
+              <i class="fas fa-edit i-btn"></i>
+            <% end %>
+            <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
+            <i class="fas fa-trash-alt i-btn"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
