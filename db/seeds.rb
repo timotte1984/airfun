@@ -10,6 +10,16 @@ u1 = User.create(
   password: "123456"
 )
 
+u2 = User.create(
+  email: "remi@lewagon.fr",
+  password: "123456"
+)
+
+u3 = User.create(
+  email: "roger@lewagon.fr",
+  password: "123456"
+)
+
 # patter to find last part of url
 pattern = /[^\/]+(?=\/$|$)/
 
