@@ -13,13 +13,6 @@
                   <%= image_tag "logo.png", alt:"img", class: "card-user" %>
                   <%= link_to "#", attraction_path(attraction), class:"card-link" %>
               </div>
-               <%= link_to edit_attraction_path(attraction), class:"logo-edit" do %>
-               <i class="fas fa-edit i-btn"></i>
-               <% end %>
-
-              <%= link_to attraction_path(attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
-                <i class="fas fa-trash-alt i-btn"></i>
-              <% end %>
             </div>
           <% end %>
         </div>
