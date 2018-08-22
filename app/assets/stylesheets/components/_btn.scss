@@ -6,9 +6,22 @@
   color: white;
 }
 
+.btn-reserv {
+  margin-top: 20px;
+}
+
 .btn-owner {
   margin-left: 30px;
   font-size: 13px;
+}
+
+.btn-reservation {
+  padding: 5px 10px;
+  border: 1px solid #0081A0;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #0081A0;
+  margin: 10px;
 }
 
 .btn-search {
@@ -29,10 +42,11 @@
   border-left: 2px solid white;
 }
 
-.btn-login:hover, .btn-owner:hover {
+.btn-login:hover, .btn-owner:hover, .btn-reservation:hover {
   color: #ec5a70;
   border-color: #ec5a70;
   transition: 0.5s ease;
+  text-decoration: none;
 }
 
 .i-btn{

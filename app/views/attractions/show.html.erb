@@ -19,8 +19,8 @@
       <div class="col-xs-7">
         <div class="attraction-description">
           <h4> Description de l'attraction </h4>
-          <p> attraction_type : <%= @attraction.attraction_type %> </p>
-          <p> playersmax : <%= @attraction.playersmax %> </p>
+          <p> Type d'attraction : <%= @attraction.attraction_type %> </p>
+          <p> Nombre de personne max : <%= @attraction.playersmax %> </p>
           <% if @owner %>
             <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
               <i class="fas fa-edit i-btn"></i>
@@ -35,38 +35,18 @@
       <div class="col-xs-5">
         <div class="attraction-reservation">
           <p> <%= current_user == @attraction.user ? "Modifier disponibilités" : "Réserver en ligne" %> </p>
-          <ul class="list-unstyled">
-            <% @attraction.availabilities.sort_by{|avai| avai.date}.each do |availability| %>
-              <li style="font-size: initial;">
-                <% if availability.is_available %>
-                  <i class="fas fa-check text-success"></i>
-                <% else %>
-                  <i class="fas fa-times text-danger"></i>
-                <% end %>
-                <%= availability.date %>
-                <% if current_user == @attraction.user and availability.is_available %>
-                  <%= link_to "Changer dispo?", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Cette journée n'est plus dispo?"} %>
-                <% end %>
-                <% if current_user != @attraction.user and availability.is_available %>
-                <%= link_to "Réserver!", attraction_availability_path(attraction_id: @attraction.id, id: availability.id, date: availability.date), method: :delete, data: {confirm: "Vous voulez vraiment réserver à cette date?"} %>
-                <% end %>
-              <% end %>
-            </li>
-          </ul>
+          <div id="myCalendar">
+            <h3 class=" btn btn-search">Voir les disponiblités</h3>
+          </div>
+          <div class="btn-reserv">
+            <%= link_to "Réserver", new_attraction_booking_path(@attraction), class:"btn-reservation" %>
+          </div>
         </div>
       </div>
-      <div class="container">
-         <%= link_to "Réserver!", new_attraction_booking_path(@attraction) %>
-      </div>
-
-
     </div>
   </div>
 </div>
 
 <div style="display: none;" id="myData" data-markers='<%= @markers.to_json %>'></div>
 
-<div id="myCalendar">
-  Disponibilité
-</div>
 
