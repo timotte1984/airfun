@@ -7,17 +7,23 @@ Booking.destroy_all
 # Fake user
 u1 = User.create(
   email: "boris@lewagon.fr",
-  password: "123456"
+  password: "123456",
+  first_name: "Boris",
+  last_name: "Paillard"
 )
 
 u2 = User.create(
   email: "remi@lewagon.fr",
-  password: "123456"
+  password: "123456",
+  first_name: "Remi",
+  last_name: "Martin"
 )
 
 u3 = User.create(
   email: "roger@lewagon.fr",
-  password: "123456"
+  password: "123456",
+  first_name: "Roger",
+  last_name: "Bertrand"
 )
 
 # patter to find last part of url

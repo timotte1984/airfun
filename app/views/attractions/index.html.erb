@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="container">
     <h2>Choisi ton attraction</h2>
-      <%= form_tag attractions_path, method: :get do %>
+      <%= form_tag attractions_path, method: :get, id:'form-search' do %>
         <%= text_field_tag :query,
           params[:query],
           id: "flat_address",
