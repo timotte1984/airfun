@@ -27,16 +27,10 @@ ActiveRecord::Schema.define(version: 2018_08_23_104125) do
     t.string "image_url"
     t.bigint "user_id"
     t.string "photo"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_attractions_on_user_id"
-  end
-
-  create_table "availabilities", force: :cascade do |t|
-    t.boolean "is_available"
-    t.date "date"
-    t.bigint "attraction_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["attraction_id"], name: "index_availabilities_on_attraction_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -69,7 +63,6 @@ ActiveRecord::Schema.define(version: 2018_08_23_104125) do
   end
 
   add_foreign_key "attractions", "users"
-  add_foreign_key "availabilities", "attractions"
   add_foreign_key "bookings", "attractions"
   add_foreign_key "bookings", "users"
 end

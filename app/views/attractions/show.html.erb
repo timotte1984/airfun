@@ -1,55 +1,72 @@
-<div class="wrapper-show">
-  <div class="container">
-    <%= link_to attractions_path, class:"logo-back" do %>
-        <i class="fas fa-arrow-circle-left i-btn"></i>
-        <% end %>
-    <div class="row">
-      <div class="col-xs-3">
-        <div class="attraction-image" style="background-image: url(<%= @attraction.photo.url.nil? ? @attraction.image_url : @attraction.photo %>)">
-        </div>
-      </div>
+<div class="main-container">
+  <div class="attractions-main-info">
+    <div class="attraction-path">
+      <p> > Attractions > <%= @attraction.name %> </p>
+    </div>
+    <div class="info">
+    <h1><%= @attraction.name %></h1>
+    <h2> <%= @attraction.description %> </h2>
+    <p> Type d'attraction : <strong><%= @attraction.attraction_type %></strong> </p>
+    </div>
+  </div>
+  <div class="attraction-image">
+    <div class="attraction-image-profil">
+      <% if @attraction.photo.url.nil? %>
+        <% a = @attraction.image_url %>
+      <% else %>
+        <% a = @attraction.photo.url %>
+      <% end %>
+      <%= image_tag(a) %>
+  </div>
+  </div>
+</div>
+<div class="main-container">
+  <div class="attraction-description">
 
-      <div class="col-xs-9">
-        <div class="attraction-content">
-          <h3><%= @attraction.name %></h3>
-          <p> Phrase de présentation de l'attraction </p>
-        </div>
-      </div>
+    <p> <i class="fas fa-users"></i> : <%= @attraction.playersmax %> personnes </p>
+    <p> <i class="fas fa-map-marked"></i> : <%= @attraction.location %> </p>
+    <p> Price  : <%= @attraction.price %> € </p>
+    <p> Owner : Roger Dublanc </p>
+    <br/>
+    <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-      <div class="col-xs-7">
-        <div class="attraction-description">
-          <h4> Description de l'attraction </h4>
-          <p> Type d'attraction : <%= @attraction.attraction_type %> </p>
-          <p> Nombre de personne max : <%= @attraction.playersmax %> </p>
-          <% if @owner %>
-            <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
-              <i class="fas fa-edit i-btn"></i>
-            <% end %>
-            <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
-            <i class="fas fa-trash-alt i-btn"></i>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </p>
+    <% if @owner %>
+      <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
+        <i class="fas fa-edit i-btn"></i>
+      <% end %>
+      <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
+      <i class="fas fa-trash-alt i-btn"></i>
+      <% end %>
+    <% end %>
+  </div>
 
-      <div class="col-xs-5">
-        <div class="attraction-reservation">
-          <p> <%= current_user == @attraction.user ? "Modifier disponibilités" : "Réserver en ligne" %> </p>
+  <div id="attraction-reservation">
+    <div class="attraction-reservation">
+    <h2 class="text-warning"> <%= @attraction.price %> € </h1>
+      <p> <%= current_user == @attraction.user ? "Modifier disponibilités" : "Réserver en ligne" %> </p>
 
-          <% @booking = Booking.new %>
+      <% @booking = Booking.new %>
 
-          <%= form_tag attraction_bookings_path(@attraction), method: :post do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "flatpickr",
-              "data-id": "range",
-              style: "display: none;",
-              placeholder: "Sélectionner vos dates"
-            %>
-            <%= submit_tag "Réserver!", class: "btn btn-reservation" %>
-          <% end %>
-        </div>
-      </div>
+      <%= form_tag attraction_bookings_path(@attraction), method: :post do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "flatpickr",
+          "data-id": "range",
+          style: "display: none;",
+          placeholder: "Sélectionner vos dates"
+        %>
+        <%= submit_tag "Réserver!", class: "btn btn-reservation" %>
+      <% end %>
     </div>
   </div>
 </div>

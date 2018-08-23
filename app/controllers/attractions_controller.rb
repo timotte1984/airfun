@@ -3,7 +3,12 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @attractions = policy_scope(Attraction).order(created_at: :desc)
+    if params["query"].present?
+      @attractions = policy_scope(Attraction).order(created_at: :desc)
+      @attractions = Attraction.near(params['query'], 100)
+    else
+      @attractions = policy_scope(Attraction).order(created_at: :desc)
+    end
   end
 
   def show

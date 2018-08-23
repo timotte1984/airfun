@@ -1,41 +1,83 @@
-.attraction-content h3{
-  margin-top: 0px !important;
+.main-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px;
 }
 
 .attraction-image{
-  height: 25vh;
-  background-position: center;
-  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  border-radius: 10px;
+  height: 50vh;
+  margin: 20px 0px;
 }
 
-.attraction-content{
-  height: 25vh;
-  background-color: white;
-  border-radius: 4px;
-  padding-top: 20px;
-  padding-left: 35px;
+.attraction-path{
+  color: black;
+  font-weight: bolder;
 }
+
+.info{
+  padding-top: 20px;
+  text-align: center;
+}
+
+.info h1{
+  font-size: 70px;
+  color: #37809C;
+}
+
+.info p strong{
+  color: red;
+}
+
+
+.attraction-image-profil img{
+  height: 320px;
+  width: 320px;
+  margin: 5px 0px;
+  border-radius: 10px;
+}
+
+.attractions-main-info{
+  width: 100vh;
+  }
 
 .attraction-description{
-  height: 40vh;
-  background-color: white;
-  border-radius: 4px;
-  margin-top: 20px;
-  padding-top: 10px;
-  padding-left: 35px;
-}
-
-.attraction-reservation{
-  height: 40vh;
-  background-color: white;
-  border-radius: 4px;
-  margin-top: 20px;
-  font-size : 25px;
   text-align: center;
-  padding-top: 10px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(100,100,100);
+  width: 100vh;
+  // border-style: solid;
+  // border-radius: 4px;
+  // border-color: #37809C;
+  // border-width: 1px;
 }
 
-.attraction-reservation p{
+#attraction-reservation{
+  flex-direction: column;
+  display: flex;
+  font-size : 25px;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-radius: 4px;
+  border-color: #37809C;
+  border-width: 1px;
+  flex: 0 0 320px;
+  height: 320px;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  background-color: rgb(270,270,270)
+}
+
+#attraction-reservation p{
   font-weight: 600px;
 }
 
@@ -47,4 +89,13 @@
 
 .flatpickr-calendar {
   margin: auto;
+}
+
+
+#attraction-reservation{
+  height: 500px;
+  text-align: center;
+  h2 {
+    margin: 0px;
+  }
 }
