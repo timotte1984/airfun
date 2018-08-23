@@ -11,14 +11,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @attraction = Attraction.find(params[:attraction_id])
     @booking.attraction = @attraction
     @booking.user = current_user
-    @gdays = @attraction.availabilities.where("date >= :start_date and date <= :end_date", ({start_date:@booking.start_date, end_date:@booking.end_date}))
-    @gdays.each do |gday|
-      gday.update(is_available: false);
-    end
+    match_data = /(?<start>.*) to (?<end>.*)/.match(params[:query])
+    @booking.start_date = match_data[:start]
+    @booking.end_date = match_data[:end]
     authorize @booking
     if @booking.save
       redirect_to attraction_path(@attraction)

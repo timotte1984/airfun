@@ -35,12 +35,19 @@
       <div class="col-xs-5">
         <div class="attraction-reservation">
           <p> <%= current_user == @attraction.user ? "Modifier disponibilités" : "Réserver en ligne" %> </p>
-          <div id="myCalendar">
-            <h3 class=" btn btn-search">Voir les disponiblités</h3>
-          </div>
-          <div class="btn-reserv">
-            <%= link_to "Réserver", new_attraction_booking_path(@attraction), class:"btn-reservation" %>
-          </div>
+
+          <% @booking = Booking.new %>
+
+          <%= form_tag attraction_bookings_path(@attraction), method: :post do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "flatpickr",
+              "data-id": "range",
+              style: "display: none;",
+              placeholder: "Sélectionner vos dates"
+            %>
+            <%= submit_tag "Réserver!", class: "btn btn-reservation" %>
+          <% end %>
         </div>
       </div>
     </div>
