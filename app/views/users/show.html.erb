@@ -1,4 +1,28 @@
-<h1>Hello Profil</h1>
-<%= image_tag 'https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj' %>
-<%= @user.first_name.capitalize %>
-<%= @user.last_name %>
+<div class="wrapper">
+  <div class="container">
+    <div class="banner-profil">
+      <%= image_tag 'https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj' %>
+      <h2>
+        <%= @user.first_name.capitalize %>
+        <%= @user.last_name %>
+      </h2>
+    </div>
+
+    <div class="text-right title-attraction"><h2>Mes attractions à louer</h2></div>
+
+    <% @user.attractions.each do |attraction| %>
+    <div class="attraction">
+      <%= image_tag  attraction.photo.url.nil? ? attraction.image_url : attraction.photo , class:"img-attraction" %>
+      <div class="attraction-date">
+        <%= attraction.updated_at %>
+      </div>
+      <div class="attraction-descrip">
+        <%= attraction.description %>
+      </div>
+      <div class="attraction-price">
+          <%= attraction.price %> €
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

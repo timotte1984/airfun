@@ -24,9 +24,16 @@ flatpickr(".flatpickr", {
  "disable": availabilities
 })
 
-document.querySelectorAll(".dayContainer span").forEach ( (el) => {
-  // el.classList.add("text-green");
-  if (el.classList.contains("disabled") === false) {
-    el.style.color = 'green'
-  }
-});
+const color_availabilities_in_green = () => {
+  document.querySelectorAll(".dayContainer span").forEach ( (el) => {
+    if (el.classList.contains("disabled") === false) {
+        el.style.color = 'green'
+      }
+  });
+}
+
+document.querySelector(".flatpickr-calendar").addEventListener('click', (el) => {
+  color_availabilities_in_green();
+  });
+
+color_availabilities_in_green();
