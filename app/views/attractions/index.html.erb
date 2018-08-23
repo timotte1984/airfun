@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container" style="padding-top:15px;">
-    <%= form_tag attractions_path, method: :get, :class => "form-inline do %>
+    <%= form_tag attractions_path, method: :get, :class => "form-inline" do %>
       <%= text_field_tag :query,
         params[:query],
         id: "flat_address",
@@ -9,7 +9,7 @@
       %>
       <%= submit_tag("GO") %>
     <% end %>
-    
+
     <div class="row">
       <div class="listing-attractions">
         <h2>Liste des attractions disponibles</h2>
