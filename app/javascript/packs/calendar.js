@@ -16,7 +16,8 @@ let availabilities = JSON.parse(data.dataset.markers)
 
 // flatpickr(document.getElementById('myCalendar'), {options});
 
-flatpickr("#myCalendar", {
+flatpickr(".flatpickr", {
+ mode: "range",
  minDate: "today",
  dateFormat: "Y-m-d",
  "disable": availabilities
