@@ -1,31 +1,31 @@
 <div class="wrapper">
-  <div class="container">
-    <h2>Choisi ton attraction</h2>
-      <%= form_tag attractions_path, method: :get, id:'form-search' do %>
-        <%= text_field_tag :query,
-          params[:query],
-          id: "flat_address",
-          class: "form-control",
-          placeholder: "Trouver une attraction près de chez vous"
-        %>
-      <% end %>
 
-    <h2>Choisi ton attraction</h2>
-      <div class="container">
-        <div class="row">
+  <div class="container" style="padding-top:15px;">
+    <%= form_tag attractions_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        id: "flat_address",
+        class: "form-control",
+        placeholder: "Trouver une attraction près de chez vous"
+      %>
+    <% end %>
+    
+    <div class="row">
+      <div class="listing-attractions">
+        <h2>Liste des attractions disponibles</h2>
           <% @attractions.each do |attraction| %>
-            <div class="col-xs-12 col-sm-3">
-              <div class="card", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= attraction.photo.url.nil? ? attraction.image_url : attraction.photo %>)">
-                <div class="card-description">
-                  <h2><%= attraction.name %></h2>
-                  <p><%= attraction.price %> € </p>
-                </div>
-                  <%= image_tag "https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj", alt:"img", class: "card-user" %>
-                  <%= link_to "#", attraction_path(attraction), class:"card-link" %>
+          <div class="col-xs-12 col-sm-3">
+            <div class="card", style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= attraction.photo.url.nil? ? attraction.image_url : attraction.photo %>)">
+              <div class="card-description">
+                <h2><%= attraction.name %></h2>
+                <p><%= attraction.price %> € </p>
               </div>
+                <%= image_tag "https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj", alt:"img", class: "card-user" %>
+                <%= link_to "#", attraction_path(attraction), class:"card-link" %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
+    </div>
   </div>
 </div>
