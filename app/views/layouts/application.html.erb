@@ -14,6 +14,8 @@
     <%= render 'shared/flashes' %>
     <%= render "shared/navbar" %>
     <%= yield %>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places">
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'calendar' %>

@@ -4,6 +4,7 @@
       <%= form_tag attractions_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
+          id: "flat_address",
           class: "form-control",
           placeholder: "Trouver une attraction près de chez vous"
         %>
