@@ -20,6 +20,7 @@ flatpickr(".flatpickr", {
  mode: "range",
  minDate: "today",
  dateFormat: "Y-m-d",
+ inline: true,
  "disable": availabilities
 })
 
