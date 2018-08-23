@@ -80,15 +80,16 @@ end
 current_date = Date.today
 attractions = Attraction.all
 
-for i in (0..7)
+for i in (0..3)
   attractions.each do |attraction|
-    Availability.create(
-      date: current_date,
+    tmp = current_date + rand(7)
+    Booking.create(
+      start_date: tmp,
+      end_date: tmp,
       attraction: attraction,
-      is_available: rand(10) > 5 ? true : false
+      user: rand(10) > 5 ? u2 : u3
     )
   end
-  current_date += 1
 end
 
 

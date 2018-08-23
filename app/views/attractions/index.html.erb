@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="container">
-    <h2>Tous les loisirs</h2>
+    <h2>Choisi ton attraction</h2>
       <%= form_tag attractions_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -9,6 +9,8 @@
           placeholder: "Trouver une attraction près de chez vous"
         %>
       <% end %>
+
+    <h2>Choisi ton attraction</h2>
       <div class="container">
         <div class="row">
           <% @attractions.each do |attraction| %>
