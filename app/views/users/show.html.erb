@@ -8,21 +8,71 @@
       </h2>
     </div>
 
-    <div class="text-right title-attraction"><h2>Mes attractions à louer</h2></div>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a id="one" href="#">Mes réservations</a></li>
+      <li role="presentation"><a id="two" href="#">Mes attractions</a></li>
+    </ul>
 
-    <% @user.attractions.each do |attraction| %>
-    <div class="attraction">
-      <%= image_tag  attraction.photo.url.nil? ? attraction.image_url : attraction.photo , class:"img-attraction" %>
-      <div class="attraction-date">
-        <%= attraction.updated_at %>
+     <div class="list-attraction-user" id="one">
+      <div class="text-right title-attraction"><h2>Mes réservations</h2></div>
+
+       <% Booking.all.where(user: current_user).each do |booking| %>
+      <div class="attraction">
+        <%= image_tag  booking.attraction.photo.url.nil? ? booking.attraction.image_url : booking.attraction.photo , class:"img-booking.attraction" %>
+        <div class="attraction-date">
+          <%= booking.attraction.updated_at %>
+        </div>
+        <div class="attraction-descrip">
+          <%= booking.attraction.description %>
+        </div>
+        <div class="attraction-price">
+            <%= booking.attraction.price %> €
+        </div>
       </div>
-      <div class="attraction-descrip">
-        <%= attraction.description %>
-      </div>
-      <div class="attraction-price">
-          <%= attraction.price %> €
-      </div>
+      <% end %>
     </div>
-    <% end %>
+
+     <div class="list-attraction-user" id="two">
+      <div id="2" class="text-right title-attraction"><h2>Mes attractions</h2></div>
+
+      <% @user.attractions.each do |attraction| %>
+      <div class="attraction">
+        <%= image_tag  attraction.photo.url.nil? ? attraction.image_url : attraction.photo , class:"img-attraction" %>
+        <div class="attraction-date">
+          <%= attraction.updated_at %>
+        </div>
+        <div class="attraction-descrip">
+          <%= attraction.description %>
+        </div>
+        <div class="attraction-price">
+            <%= attraction.price %> €
+        </div>
+      </div>
+      <% end %>
+    div>
   </div>
 </div>
+
+
+<script>
+
+  const remove_all_style = () => {
+    document.querySelectorAll('.nav-tabs li').forEach( (el) => {
+      el.classList.remove('active')
+    })
+  }
+
+
+  document.querySelectorAll('.nav-tabs li').forEach ( (el) => {
+    el.addEventListener("click", (ev) => {
+      remove_all_style();
+      ev.target.parentElement.classList.add("active");
+      document.querySelectorAll(".list-attraction-user").forEach ( (el) => {
+        el.style.display = "none"
+      })
+      document.querySelector(`#${ev.target.id}.list-attraction-user`).style.display = "block"
+
+    });
+  })
+
+</script>
