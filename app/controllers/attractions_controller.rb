@@ -7,13 +7,21 @@ class AttractionsController < ApplicationController
   end
 
   def show
-    @markers = @attraction.availabilities.select {|avai| avai.is_available == false}
-    @markers = @markers.map do |avai|
+
+    @markers = @attraction.bookings.map do |booking|
       {
-        from: avai.date,
-        to: avai.date
+        from: booking.start_date,
+        to: booking.end_date
       }
     end
+
+    # @markers = @attraction.availabilities.select {|avai| avai.is_available == false}
+    # @markers = @markers.map do |avai|
+    #   {
+    #     from: avai.date,
+    #     to: avai.date
+    #   }
+    # end
 
     if @attraction.user == nil
       @owner == false

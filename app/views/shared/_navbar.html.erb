@@ -25,7 +25,7 @@
         <img src="https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
-            <%= link_to "Profil", "#" %>
+            <%= link_to "Profil", user_path(current_user.id) %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
@@ -53,7 +53,7 @@
             <%= link_to "Notification", "#" %>
           </li>
           <li>
-            <%= link_to "Profil", "#" %>
+            <%= link_to  "Profil", "#"%>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
