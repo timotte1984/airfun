@@ -1,13 +1,14 @@
-<div class="wrapper">
+<div class="wrapper-attractions">
   <div class="container">
-    <h2>Choisi ton attraction</h2>
-      <%= form_tag attractions_path, method: :get do %>
+
+      <%= form_tag attractions_path, method: :get, :class => "form-inline mw-50" do %>
         <%= text_field_tag :query,
           params[:query],
           id: "flat_address",
           class: "form-control",
           placeholder: "Trouver une attraction près de chez vous"
         %>
+        <%= submit_tag("GO") %>
       <% end %>
 
     <h2>Choisi ton attraction</h2>
