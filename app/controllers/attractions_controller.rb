@@ -42,6 +42,7 @@ class AttractionsController < ApplicationController
 
   def create
     @attraction = Attraction.new(attraction_params)
+    @attraction.image_url = Attraction.first.image_url
     @attraction.user = current_user
     authorize @attraction
     if @attraction.save
@@ -77,7 +78,6 @@ class AttractionsController < ApplicationController
   end
 
   def attraction_params
-    params.require(:attraction).permit(:name, :attraction_type, :playersmax, :photo, :photo_cache,:description, :price, :location)
+    params.require(:attraction).permit(:name, :attraction_type, :image_url, :playersmax, :photo, :photo_cache,:description, :price, :location)
   end
-
 end
