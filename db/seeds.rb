@@ -55,7 +55,8 @@ results_array.each do |hash|
     description: "Trop bien",
     price: rand(50..100),
     image_url: hash[:img],
-    user: u1
+    user: u1,
+    location: %w(Paris Lyon Marseille Bordeaux Lille).sample
   )
   attraction.save!
 end

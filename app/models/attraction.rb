@@ -6,4 +6,7 @@ class Attraction < ApplicationRecord
   validates :attraction_type, presence: true, allow_blank: false
   validates :playersmax, presence: true
   mount_uploader :photo, PhotoUploader
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end

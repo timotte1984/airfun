@@ -15,6 +15,8 @@
     <%= render "shared/navbar" %>
     <%= yield %>
     <%= render "shared/footer" unless @skip_footer %>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places">
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js" %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_pack_tag 'calendar' %>

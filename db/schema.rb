@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2018_08_23_104125) do
     t.string "image_url"
     t.bigint "user_id"
     t.string "photo"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_attractions_on_user_id"
   end
 
