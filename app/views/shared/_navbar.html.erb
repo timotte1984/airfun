@@ -4,41 +4,35 @@
     <%= link_to root_path do %>
       <%= image_tag "logo-air-fun.png", alt: "logo", width:"120" %>
     <% end %>
-    <%= link_to "Ajouter attraction", new_attraction_path, class:"btn btn-owner" %>
   </div>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div class="link-i">
-      <%= link_to "#", class:"navbar-wagon-item navbar-wagon-link" do %>
-        <i class="far fa-comment white"></i>
-      <% end %>
-      <%= link_to "#", class:"navbar-wagon-item navbar-wagon-link" do %>
-        <i class="far fa-bell white"></i>
-      <% end %>
-    </div>
-
     <!-- Profile picture with dropdown list -->
+    <% if user_signed_in? %>
     <div class="navbar-wagon-item">
-      <% if user_signed_in? %>
       <div class="dropdown">
-        <img src="https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to "Profil", user_path(current_user.id) %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <%= t(".sign_out", default: "Se déconnecter") %>
-            <% end %>
-          </li>
-        </ul>
+        <div class="navbar-profil-add-attraction">
+          <%= link_to "Ajouter attraction", new_attraction_path, class:"btn btn-owner text-right" %>
+          <img src="https://78.media.tumblr.com/avatar_d10fc8689e88_128.pnj" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "Profil", user_path(current_user.id) %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+              <%= t(".sign_out", default: "Se déconnecter") %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
       </div>
-        <% else %>
-          <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link btn-login" %>
-        <% end %>
+    <% else %>
+      <div class="navbar-profil-add-attraction">
+        <%= link_to "Ajouter attraction", new_attraction_path, class:"btn btn-owner text-right" %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link btn-login" %>
+      </div>
+    <% end %>
     </div>
-  </div>
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
