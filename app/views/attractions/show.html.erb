@@ -38,7 +38,7 @@
       <div id="attraction-profil-description">
          <p><strong> Description </strong></p>
         <br/>
-        <p style= "text-align: justify;"><%= @attraction.description %> </p>
+        <p style= "text-align: justify;"> <%= @attraction.description %> </p>
         <% if @owner %>
           <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
             <i class="fas margin-i fa-edit i-btn text-color-site"></i>
