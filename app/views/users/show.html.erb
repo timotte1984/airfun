@@ -15,12 +15,16 @@
 
      <div class="list-attraction-user" id="one">
       <div class="text-right title-attraction"><h2>Mes réservations</h2></div>
-
-       <% Booking.all.where(user: current_user).each do |booking| %>
-      <div class="attraction">
+        <% if Booking.all.where(user: current_user).size == 0 %>
+          <h3><%= "Vous n'avez pas de réservations actuellement" %></h3>
+        <% end %>
+       <% Booking.all.where(user: current_user).order("updated_at DESC").each do |booking| %>
+       <% if booking.attraction.user != current_user %>
+        <div class="attraction">
         <%= image_tag  booking.attraction.photo.url.nil? ? booking.attraction.image_url : booking.attraction.photo , class:"img-booking.attraction" %>
         <div class="attraction-date">
-          <%= booking.attraction.updated_at %>
+          <p><%= booking.attraction.updated_at.strftime("Réservé le %m/%d/%Y") %></p>
+          <p><%= "#{booking.start_date.strftime("%m/%d/%Y")} - #{booking.end_date.strftime("%m/%d/%Y")}" %></p>
         </div>
         <div class="attraction-descrip">
           <%= booking.attraction.description %>
@@ -30,16 +34,19 @@
         </div>
       </div>
       <% end %>
+      <% end %>
     </div>
 
-     <div class="list-attraction-user" id="two">
-      <div id="2" class="text-right title-attraction"><h2>Mes attractions</h2></div>
-
-      <% @user.attractions.each do |attraction| %>
+     <div class="list-attraction-user hidden" id="two">
+      <div class="text-right title-attraction"><h2>Mes attractions</h2></div>
+      <% if @user.attractions.size == 0 %>
+      <h3><%= "Vous n'avez pas d'attractions actuellement" %></h3>
+      <% end %>
+      <% @user.attractions.order("updated_at DESC").each do |attraction| %>
       <div class="attraction">
-        <%= image_tag  attraction.photo.url.nil? ? attraction.image_url : attraction.photo , class:"img-attraction" %>
+        <%= image_tag  attraction.photo.url.nil? ? attraction.image_url : attraction.photo , class:"img-booking.attraction" %>
         <div class="attraction-date">
-          <%= attraction.updated_at %>
+          <%= attraction.updated_at.strftime("%m/%d/%Y") %>
         </div>
         <div class="attraction-descrip">
           <%= attraction.description %>
@@ -49,29 +56,21 @@
         </div>
       </div>
       <% end %>
-    div>
+    <div>
   </div>
 </div>
 
 
 <script>
 
-  const remove_all_style = () => {
-    document.querySelectorAll('.nav-tabs li').forEach( (el) => {
-      el.classList.remove('active')
-    })
-  }
-
-
   document.querySelectorAll('.nav-tabs li').forEach ( (el) => {
     el.addEventListener("click", (ev) => {
-      remove_all_style();
-      ev.target.parentElement.classList.add("active");
-      document.querySelectorAll(".list-attraction-user").forEach ( (el) => {
-        el.style.display = "none"
+      document.querySelectorAll('.nav-tabs li').forEach( (el) => {
+        el.classList.toggle("active");
+      });
+      document.querySelectorAll('.list-attraction-user').forEach( (el) => {
+       el.classList.toggle("hidden")
       })
-      document.querySelector(`#${ev.target.id}.list-attraction-user`).style.display = "block"
-
     });
   })
 
