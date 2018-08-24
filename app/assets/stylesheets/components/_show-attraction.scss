@@ -1,7 +1,8 @@
 .attraction-path{
   color: black;
   font-weight: bolder;
-  margin-left: 20px;
+  margin: 20px 0px 20px 20px;
+
 }
 
 .main-container{
@@ -18,11 +19,10 @@
 .attraction-image-profil {
   grid-row : 1 / span 1;
   grid-column : 1 / span 2;
-  height: 320px;
+  width: 320px;
 }
 
 .attraction-image-profil img{
-  height: 320px;
   width: 320px;
   margin: 5px 0px;
   border-radius: 10px;
@@ -32,21 +32,18 @@
   grid-row : 1 / span 1;
   grid-column: 3 /span 2;
   color: rgb(100,100,100);
-  // border-style: solid;
-  // border-radius: 4px;
-  // border-color: #37809C;
-  // border-width: 1px;
 }
 
 #attraction-profil-capacity{
   grid-row: 2 / span 1;
   grid-column: 1 / span 1;
-text-align: center;
+  // text-align: center;
 }
 
 #attraction-profil-price{
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
+  margin-left: 15px;
 }
 
 #attraction-profil-place{
@@ -102,3 +99,8 @@ text-align: center;
     margin: 0px;
   }
 }
+
+.margin-i {
+  margin-right: 10px;
+}
+

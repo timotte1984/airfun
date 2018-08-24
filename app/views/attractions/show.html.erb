@@ -1,74 +1,75 @@
-
-<div class="attraction-path">
-  <p> > Attractions > <%= @attraction.name %> </p>
-</div>
-
-<div class="main-container">
-  <div class="grid">
-     <div class="attraction-image-profil">
-      <% if @attraction.photo.url.nil? %>
-        <% a = @attraction.image_url %>
-      <% else %>
-        <% a = @attraction.photo.url %>
-      <% end %>
-      <%= image_tag(a) %>
-    </div>
-
-    <div class="attraction-main-description">
-      <h1><%= @attraction.name %></h1>
-      <h2><%= @attraction.attraction_type %></h2>
-    </div>
-
-    <div id="attraction-profil-capacity">
-      <i class="fas fa-users"></i> <%= @attraction.playersmax %> personnes
-    </div>
-
-    <div id="attraction-profil-price">
-      <i class="fas fa-euro-sign"></i><%= @attraction.price %> € / Jour
-    </div>
-
-    <div id="attraction-profil-place">
-      <i class="fas fa-map"></i> <%= @attraction.location %>
-    </div>
-
-    <div id="attraction-profil-owner">
-      <i class="fas fa-crown"></i><%= @attraction.user.first_name %> <%= @attraction.user.last_name %>
-    </div>
-
-    <div id="attraction-profil-description">
-       <p><strong> Description </strong></p>
-      <br/>
-      <p> <%= @attraction.description %> </p>
-      <% if @owner %>
-        <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
-          <i class="fas fa-edit i-btn"></i>
-        <% end %>
-        <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
-        <i class="fas fa-trash-alt i-btn"></i>
-        <% end %>
-      <% end %>
-    </div>
+<div class="container">
+  <div class="attraction-path">
+    <p>Attractions > <%= @attraction.name %> </p>
   </div>
 
+  <div class="main-container">
+    <div class="grid">
+       <div class="attraction-image-profil">
+        <% if @attraction.photo.url.nil? %>
+          <% a = @attraction.image_url %>
+        <% else %>
+          <% a = @attraction.photo.url %>
+        <% end %>
+        <%= image_tag(a) %>
+      </div>
 
+      <div class="attraction-main-description">
+        <h1 class="text-color-site-green"><%= @attraction.name %></h1>
+        <h2><%= @attraction.attraction_type %></h2>
+      </div>
 
-  <div id="attraction-reservation">
-    <div class="attraction-reservation">
-      <% @booking = Booking.new %>
+      <div id="attraction-profil-capacity">
+        <i class="fas margin-i fa-users text-color-site"></i> <%= @attraction.playersmax %> personnes
+      </div>
 
-      <%= form_tag attraction_bookings_path(@attraction), method: :post do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "flatpickr",
-          "data-id": "range",
-          style: "display: none;",
-          placeholder: "Sélectionner vos dates"
-        %>
+      <div id="attraction-profil-price">
+        <i class="fas margin-i fa-euro-sign text-color-site"></i><%= @attraction.price %> € / Jour
+      </div>
+
+      <div id="attraction-profil-place">
+        <i class="fas margin-i fa-map text-color-site"></i> <%= @attraction.location %>
+      </div>
+
+      <div id="attraction-profil-owner">
+        <i class="fas margin-i fa-crown text-color-site"></i><%= @attraction.user.first_name %> <%= @attraction.user.last_name %>
+      </div>
+
+      <div id="attraction-profil-description">
+         <p><strong> Description </strong></p>
         <br/>
-        <h2 class="text-warning"> <%= @attraction.price %> € </h2>
-        <% current_user == @attraction.user ? a = "Modifier disponibilités" : a = "Réserver en ligne" %>
-        <%= submit_tag a, class: "btn btn-reservation" %>
-      <% end %>
+        <p style= "text-align: justify;"> <%= @attraction.description %> </p>
+        <% if @owner %>
+          <%= link_to edit_attraction_path(@attraction), class:"logo-edit" do %>
+            <i class="fas margin-i fa-edit i-btn text-color-site"></i>
+          <% end %>
+          <%= link_to attraction_path(@attraction), method: :delete, data: {confirm: "Really delete this article?"} do %>
+          <i class="fas margin-i fa-trash-alt i-btn text-color-site"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+    <div id="attraction-reservation">
+      <div class="attraction-reservation">
+        <% @booking = Booking.new %>
+
+        <%= form_tag attraction_bookings_path(@attraction), method: :post do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "flatpickr",
+            "data-id": "range",
+            style: "display: none;",
+            placeholder: "Sélectionner vos dates"
+          %>
+          <br/>
+          <h2 class="text-warning"> <%= @attraction.price %> € </h2>
+          <% current_user == @attraction.user ? a = "Modifier disponibilités" : a = "Réserver en ligne" %>
+          <%= submit_tag a, class: "btn btn-reservation" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
