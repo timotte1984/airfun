@@ -6,21 +6,21 @@ Booking.destroy_all
 
 # Fake user
 u1 = User.create(
-  email: "boris@lewagon.fr",
+  email: "b@g.fr",
   password: "123456",
   first_name: "Boris",
   last_name: "Paillard"
 )
 
 u2 = User.create(
-  email: "remi@lewagon.fr",
+  email: "r@g.fr",
   password: "123456",
   first_name: "Remi",
   last_name: "Martin"
 )
 
 u3 = User.create(
-  email: "roger@lewagon.fr",
+  email: "a@g.fr",
   password: "123456",
   first_name: "Roger",
   last_name: "Bertrand"
@@ -56,10 +56,20 @@ end
 results_array.each do |hash|
   attraction = Attraction.new(
     name: hash[:title],
-    attraction_type: "Test",
-    playersmax: 50,
-    description: "Trop bien",
-    price: rand(50..100),
+    attraction_type: [ "Montagnes Rousses", "Chateau Gonflable", "Rodéo","Horreur","sensation","pêche aux canard"].sample,
+    playersmax: [50, 10, 5, 70, 100 ].sample,
+    description: "L’attraction : Inspirée de la célèbre scène de fuite \
+     en wagons des mines du film Indiana Jones et le Temple maudit, c’est \
+      la seule attraction de type montagne russe de Disneyland Paris à être \
+      totalement ouverte sur l’extérieur, offrant au visiteur une vue aérienne\
+       du fond d’Adventureland et quelques frissons … Embarquez à bord d’un\
+        petit wagon qui vous emporte au cœur d’un temple hindou en ruine, \
+        digne des aventures d’Indiana Jones. Si le départ est modéré, attention\
+         au looping qui approche ! Restrictions : Taille minimum\
+          :1,40m / Déconseillé aux femmes enceintes / Avertissement aux\
+           personnes souffrant du dos, de problèmes cardiaques et / ou\
+            respiratoires.",
+    price: [500, 1000, 2000, 5000, 10000 ].sample,
     image_url: hash[:img],
     user: u1,
     location: %w(Paris Lyon Marseille Bordeaux Lille).sample
