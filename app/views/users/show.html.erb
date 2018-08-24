@@ -8,13 +8,15 @@
       </h2>
     </div>
 
-    <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a id="one" href="#">Mes réservations</a></li>
-      <li role="presentation"><a id="two" href="#">Mes attractions</a></li>
-    </ul>
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a id="one" href="#">Mes réservations</a></li>
+        <li role="presentation"><a id="two" href="#">Mes attractions</a></li>
+      </ul>
 
-     <div class="list-attraction-user" id="one">
-      <div class="text-right title-attraction"><h2>Mes réservations</h2></div>
+    <div class="list-attraction-user" id="one">
+      <div class="text-right title-attraction">
+        <h2>Mes réservations</h2>
+      </div>
         <% if Booking.all.where(user: current_user).size == 0 %>
           <h3><%= "Vous n'avez pas de réservations actuellement" %></h3>
         <% end %>
@@ -37,8 +39,10 @@
       <% end %>
     </div>
 
-     <div class="list-attraction-user hidden" id="two">
-      <div class="text-right title-attraction"><h2>Mes attractions</h2></div>
+    <div class="list-attraction-user hidden" id="two">
+      <div class="text-right title-attraction">
+        <h2>Mes attractions</h2>
+      </div>
       <% if @user.attractions.size == 0 %>
       <h3><%= "Vous n'avez pas d'attractions actuellement" %></h3>
       <% end %>
@@ -56,13 +60,11 @@
         </div>
       </div>
       <% end %>
-    <div>
+    </div>
   </div>
 </div>
 
-
 <script>
-
   document.querySelectorAll('.nav-tabs li').forEach ( (el) => {
     el.addEventListener("click", (ev) => {
       document.querySelectorAll('.nav-tabs li').forEach( (el) => {
@@ -73,5 +75,4 @@
       })
     });
   })
-
 </script>
