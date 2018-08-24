@@ -20,7 +20,7 @@ class BookingsController < ApplicationController
     @booking.end_date = match_data[:end]
     authorize @booking
     if @booking.save
-      redirect_to attraction_path(@attraction)
+      redirect_to user_path(current_user)
     else
       render :new
     end
