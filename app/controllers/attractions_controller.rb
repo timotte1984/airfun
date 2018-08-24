@@ -3,9 +3,17 @@ class AttractionsController < ApplicationController
   before_action :set_attraction, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params["query"].present?
+    if params["query"].present? and params["range"].present?
+      match_data = /(?<start>.*) to (?<end>.*)/.match(params[:range])
+      start_date = match_data[:start]
+      end_date = match_data[:end]
       @attractions = policy_scope(Attraction).order(created_at: :desc)
       @attractions = Attraction.near(params['query'], 100)
+      # @attractions = @attractions.joins(:bookings).where("bookings.start_date <= ? OR bookings.end_date >= ?", start_date, end_date)
+      # @attractions = @attractions.joins(:bookings).where("(bookings.start_date >= #{start_date} AND bookings.start_date <= #{end_date}) OR (bookings.end_date >= #{start_date} AND bookings.end_date <= #{end_date})")
+      # @attractions = @attractions.joins(:bookings).where("(bookings.start_date >= CAST( #{start_date} as DATE))")
+      @attractions = @attractions.joins(:bookings).where("bookings.start_date >= CAST(#{Date.parse(start_date)} AS DATE)")
+      raise
     else
       @attractions = policy_scope(Attraction).order(created_at: :desc)
     end

@@ -1,6 +1,12 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/confetti.css" // Note this is important!
 
+flatpickr(".flatpickr-index", {
+ mode: "range",
+ minDate: "today",
+ dateFormat: "Y-m-d"
+})
+
 const data = document.getElementById('myData');
 let availabilities = JSON.parse(data.dataset.markers)
 
@@ -23,6 +29,7 @@ flatpickr(".flatpickr", {
  inline: true,
  "disable": availabilities
 })
+
 
 const color_availabilities_in_green = () => {
   document.querySelectorAll(".dayContainer span").forEach ( (el) => {

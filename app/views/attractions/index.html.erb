@@ -7,6 +7,11 @@
         class: "form-control",
         placeholder: "Trouver une attraction près de chez vous"
       %>
+      <%= text_field_tag :range,
+        params[:range],
+        class: "flatpickr-index",
+        placeholder: "Sélectionner vos dates"
+      %>
       <%= submit_tag("GO") %>
     <% end %>
 
