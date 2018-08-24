@@ -29,6 +29,17 @@
 
 .attraction-descrip {
   flex-grow: 1;
+  max-height: 150px;
+  overflow: scroll;
+  font-size: small;
+}
+
+.attraction-price {
+  text-align: center;
+}
+
+.attraction-price p {
+  width:100px;
 }
 
 .banner-profil {
