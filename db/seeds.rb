@@ -93,6 +93,8 @@ for i in (0..3)
       start_date: tmp,
       end_date: tmp,
       attraction: attraction,
+      is_validated: rand(10) > 5 ? true : false,
+      is_paid: rand(10) > 5 ? true : false,
       user: rand(10) > 5 ? u2 : u3
     )
   end
