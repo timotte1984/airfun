@@ -3,7 +3,7 @@
     <%= form_tag attractions_path, method: :get, :class => "form-inline" do %>
       <%= text_field_tag :query,
         params[:query],
-        id: "flat_address",
+        id: "attraction_location",
         class: "form-control",
         placeholder: "Trouver une attraction près de chez vous"
       %>
