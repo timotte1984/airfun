@@ -5,9 +5,10 @@
         params[:query],
         id: "attraction_location",
         class: "form-control",
+        style: "width: 500px;",
         placeholder: "Trouver une attraction près de chez vous"
       %>
-      <%= submit_tag("GO") %>
+      <%= submit_tag "Go!", class: "btn btn-search" %>
     <% end %>
 
     <div class="row">
